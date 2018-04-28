@@ -2,6 +2,9 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 public class Farmacia {
 
@@ -13,7 +16,7 @@ public class Farmacia {
 	private String telefono;
 	private String diaDeTurno;
 
-	@OneToOne
+	@OneToOne @Cascade({CascadeType.ALL})
 	private Direccion direccion;
 	
 //	@OneToOne
