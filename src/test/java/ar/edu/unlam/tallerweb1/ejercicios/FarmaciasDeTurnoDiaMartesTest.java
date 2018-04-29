@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
 import ar.edu.unlam.tallerweb1.SpringTest;
-import junit.framework.Assert;
+import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 
 public class FarmaciasDeTurnoDiaMartesTest extends SpringTest{
 
