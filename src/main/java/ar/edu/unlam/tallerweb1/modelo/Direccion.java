@@ -2,6 +2,9 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 public class Direccion {
 
@@ -12,8 +15,8 @@ public class Direccion {
 	private String calle;
 	private int numero;
 
-//	@ManyToOne
-//	private Barrio barrio;
+	@ManyToOne  @Cascade({CascadeType.ALL})
+	private Barrio barrio;
 	
 	public Direccion(String calle, int numero) {
 		this.calle = calle;
@@ -47,11 +50,11 @@ public class Direccion {
 		this.numero = numero;
 	}
 
-//	public Barrio getBarrio() {
-//		return barrio;
-//	}
-//	public void setBarrio(Barrio barrio) {
-//		this.barrio = barrio;
-//	}
+	public Barrio getBarrio() {
+		return barrio;
+	}
+	public void setBarrio(Barrio barrio) {
+		this.barrio = barrio;
+	}
 	
 }
