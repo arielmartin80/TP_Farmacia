@@ -23,9 +23,8 @@ public class Comuna {
 	private List<Barrio> barrios = new ArrayList<Barrio> ();
 	
 	
-	public Barrio addBarrio(Barrio barrio) {
-		
-		return barrio;
+	public void addBarrio(Barrio barrio) {
+		this.barrios.add(barrio);
 	}
 	
 	//Getters y Setters

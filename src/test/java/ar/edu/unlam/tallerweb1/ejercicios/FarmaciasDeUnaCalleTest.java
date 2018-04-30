@@ -15,7 +15,8 @@ import ar.edu.unlam.tallerweb1.modelo.*;
 
 public class FarmaciasDeUnaCalleTest extends SpringTest{
 
-	@Test @Transactional @Rollback @SuppressWarnings ("unchecked")
+	@Test @Transactional @Rollback 
+	@SuppressWarnings ("unchecked")
 	public void buscarTodasLasFarmaciasDeUnaCalle(){
 		
 // 		creamos la session
@@ -46,5 +47,6 @@ public class FarmaciasDeUnaCalleTest extends SpringTest{
 		assertThat(resultado).hasSize(2);
 		
 	}
+	
 	
 }
