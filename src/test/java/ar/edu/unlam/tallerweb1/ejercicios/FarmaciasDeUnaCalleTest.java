@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.ejercicios;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
@@ -40,11 +41,16 @@ public class FarmaciasDeUnaCalleTest extends SpringTest{
 		List<Farmacia> resultado=
 		session.createCriteria(Farmacia.class)
 		.createAlias("direccion", "direccion")
-		.add(Restrictions.eq("direccion.calle", "Cristiania"))
+		.add( Restrictions.eq("direccion.calle", "Cristiania") )
 		.list();
 		
 //		verificamos que la variable resultado contenga 2 elementos
 		assertThat(resultado).hasSize(2);
+		
+//		verificamos que todos los elementos sean "Cristiania"
+		for(Farmacia lista:resultado){
+			assertEquals("Cristiania",lista.getDireccion().getCalle() );
+		}
 		
 	}
 	
