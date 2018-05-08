@@ -47,6 +47,32 @@ public class ControladorCalculadora {
 		
 		return new ModelAndView("calculadora",modelo);
 	}
+
+//operacion de resta
+		@RequestMapping("/multiplicar/{primero}/por/{segundo}")
+		public ModelAndView multiplicar(@PathVariable Double primero,@PathVariable Double segundo){
+			ModelMap modelo = new ModelMap();
+			Double resultado=primero*segundo;
+			modelo.put("primero",primero);
+			modelo.put("segundo", segundo);
+			modelo.put("resultado", resultado);
+			modelo.put("operacion", "multiplicacion");
+			
+			return new ModelAndView("calculadora",modelo);
+		}
+		
+//operacion de resta
+		@RequestMapping("/dividir/{primero}/dividido/{segundo}")
+		public ModelAndView dividir(@PathVariable Double primero,@PathVariable Double segundo){
+			ModelMap modelo = new ModelMap();
+			Double resultado=primero/segundo;
+			modelo.put("primero",primero);
+			modelo.put("segundo", segundo);
+			modelo.put("resultado", resultado);
+			modelo.put("operacion", "division");
+			
+			return new ModelAndView("calculadora",modelo);
+		}
 	
 	
 }
