@@ -17,7 +17,7 @@ public class ControladorCalculadora {
 				+ "<br>Elemplo para sumar: /sumar/3/mas/4"
 				+ "<br>Elemplo para restar: /restar/3/menos/4"
 				+ "<br>Elemplo para multiplicar: /multiplicar/3/por/4"
-				+ "<br>Elemplo para dividir: /dividir/3/por/4";
+				+ "<br>Elemplo para dividir: /dividir/3/dividido/4";
 		modelo.put("mensaje",mensaje);
 		
 		return new ModelAndView("calculadora",modelo);
@@ -48,7 +48,7 @@ public class ControladorCalculadora {
 		return new ModelAndView("calculadora",modelo);
 	}
 
-//operacion de resta
+//operacion de multiplicacion
 		@RequestMapping("/multiplicar/{primero}/por/{segundo}")
 		public ModelAndView multiplicar(@PathVariable Double primero,@PathVariable Double segundo){
 			ModelMap modelo = new ModelMap();
@@ -61,7 +61,7 @@ public class ControladorCalculadora {
 			return new ModelAndView("calculadora",modelo);
 		}
 		
-//operacion de resta
+//operacion de division
 		@RequestMapping("/dividir/{primero}/dividido/{segundo}")
 		public ModelAndView dividir(@PathVariable Double primero,@PathVariable Double segundo){
 			ModelMap modelo = new ModelMap();
@@ -70,8 +70,12 @@ public class ControladorCalculadora {
 			modelo.put("segundo", segundo);
 			modelo.put("resultado", resultado);
 			modelo.put("operacion", "division");
-			
-			return new ModelAndView("calculadora",modelo);
+			if(segundo==0){
+				modelo.put("mensaje","No se puede dividir por 0");
+				return new ModelAndView("error",modelo);
+			}
+			else
+				return new ModelAndView("calculadora",modelo);
 		}
 	
 	
